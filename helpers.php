@@ -20,7 +20,12 @@
   */
 
   function loadView ($name) {
-   require basePath("views/{$name}.view.php");
+  $viewPath = basePath("views/{$name}.view.php");
+  if(file_exists($viewPath)) {
+   require $viewPath;
+  } else {
+   echo "View '{$name}' not found! ";
+  }
   }
 
 
@@ -32,5 +37,10 @@
    * 
    */
    function loadPartial($name) {
-      require basePath("views/partials/{$name}.php");
+     $partialPath = basePath("views/partials/{$name}.php");
+     if(file_exists($partialPath)) {
+      require $partialPath;
+     } else {
+      echo "Partial '{$name}' not found! ";
+     }
    }
