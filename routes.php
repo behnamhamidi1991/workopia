@@ -6,3 +6,4 @@ return [
     '/listings/create' => 'controllers/listings/create.php',
     '404' => '/controllers/error/404.php'
 ];
+
