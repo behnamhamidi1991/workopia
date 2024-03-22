@@ -23,7 +23,7 @@
     if (file_exists($viewPath)) {
         require $viewPath;
     } else {
-        echo "View '{$path}' not found!";
+        echo "View '{$name}' not found!";
     }
   }
 
