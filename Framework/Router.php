@@ -95,7 +95,7 @@ public function error($httpCode = 404) {
     public function route($uri, $method) {
         foreach($this->routes as $route) {
             if($route['uri'] === $uri && $route['method']  === $method) {
-                require basePath($route['controller']);
+                require basePath('App/' . $route['controller']);
                 return;
             }
         }
