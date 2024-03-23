@@ -10,7 +10,6 @@ spl_autoload_register(function ($class) {
     }
 });
 
-// $test = new Test();
 
 // Instantiate the router
 $router = new Router();
