@@ -1,0 +1,16 @@
+{
+  "name": "bradtraversy/workopia-php",
+  "description": "Job listing application",
+  "authors": [
+    {
+      "name": "Behnam Hamidi",
+      "email": "support@behnamhamidi.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Framework\\": "Framework/",
+      "App\\": "App/"
+    }
+  }
+}
