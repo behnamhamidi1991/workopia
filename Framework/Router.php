@@ -16,12 +16,13 @@ class Router {
      */
 
     public function registerRoute($method, $uri, $action) {
-        $arr = explode('@', $action);
-        inspectAndDie($arr);
+        list($controller, $controllerMethod) = explode('@', $action);
+
         $this->routes[] = [
             'method' => $method,
             'uri' => $uri,
-            'controller' => $controller
+            'controller' => $controller,
+            'controllerMethod' => $controllerMethod
         ];
     }
 
@@ -99,8 +100,15 @@ public function error($httpCode = 404) {
     public function route($uri, $method) {
         foreach($this->routes as $route) {
             if($route['uri'] === $uri && $route['method']  === $method) {
-                require basePath('App/' . $route['controller']);
-                return;
+            //    Extract controller and controller method
+            $controller = 'App\\Controllers\\' . $route['controller'];
+            $controllerMethod = $route['controllerMethod'];
+            
+            // Instantiate the controller and call the method
+            $controllerInstance = new $controller();
+            $controllerInstance->$controllerMethod();
+
+            return;
             }
         }
 
