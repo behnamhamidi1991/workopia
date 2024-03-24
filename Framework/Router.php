@@ -10,12 +10,14 @@ class Router {
      * 
      * @param string $method
      * @param string $uri
-     * @param string $controller
+     * @param string $action
      * @return void
      * 
      */
 
-    public function registerRoute($method, $uri, $controller) {
+    public function registerRoute($method, $uri, $action) {
+        $arr = explode('@', $action);
+        inspectAndDie($arr);
         $this->routes[] = [
             'method' => $method,
             'uri' => $uri,
