@@ -101,7 +101,7 @@ class Router {
             return;
             }
         }
-        $errorController = new ErrorController();
-        $errorController->notFound();
+
+        ErrorController::notFound();
     }
 }
