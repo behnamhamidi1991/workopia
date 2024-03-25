@@ -17,7 +17,7 @@ class ListingController {
   
     public function index() {
 
-        inspectAndDie((Validation::string('')));
+        inspectAndDie((Validation::email('test@test.com')));
         $listings = $this->db->query('SELECT * FROM listings')->fetchAll();
 
         loadView('home', [

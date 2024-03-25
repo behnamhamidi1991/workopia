@@ -1,8 +1,7 @@
 <?php 
 
 namespace Framework;
-
-class Validation {
+    class Validation {
     /**
      * Validate a string
      * 
@@ -10,7 +9,7 @@ class Validation {
      * @param int $min
      * @param int $max
      * @return boolean
-     */
+     */    
     public static function string($value, $min = 1, $max = INF) {
         if(is_string($value)) {
             $value = trim($value);
@@ -19,19 +18,18 @@ class Validation {
         }
         return false;
     }
-}
 
+    
+    /**
+     * Validate email address
+     * 
+     * @param string $value
+     * @return mixed
+     */
 
-/**
- * Validate email address 
- * 
- * @param string $value
- * @return mixed
- */
-
-    public static function email($value) 
-    {
+    public static function email($value) {
         $value = trim($value);
         return filter_var($value, FILTER_VALIDATE_EMAIL);
     }
 
+}
