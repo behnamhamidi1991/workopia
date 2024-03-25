@@ -32,4 +32,17 @@ namespace Framework;
         return filter_var($value, FILTER_VALIDATE_EMAIL);
     }
 
+    /**
+     * Match a value against another
+     * @param string $value1
+     * @param string $value2
+     * @return boolean
+     */
+    public static function match($value1, $value2) {
+        $value1 = trim($value1);
+        $value2 = trim($value2);
+
+        return $value1 === $value2;
+    }
+
 }
