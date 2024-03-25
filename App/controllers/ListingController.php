@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use Framework\Database;
+use Framework\Validation;
 
 class ListingController {
 
@@ -13,15 +14,17 @@ class ListingController {
         $config = require basePath('config/db.php');
         $this->db = new Database($config);
     }
-    
+  
     public function index() {
+
+        inspectAndDie((Validation::string('')));
         $listings = $this->db->query('SELECT * FROM listings')->fetchAll();
 
         loadView('home', [
             'listings' => $listings
         ]);
     }
-
+  
     public function create() {
         loadView('listings/create');
     }
